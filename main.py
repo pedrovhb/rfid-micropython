@@ -43,17 +43,17 @@ while True:
 			c.publish('/nersd/rfid', 'cadastro-cancelado')
 		else:
 			print('Cadastro realizado com sucesso. UID: {}\n'.format(tag_cadastrado))
-			c.publish('/nersd/rfid', 'cadastro-{}'.format(tag_cadastrado))
+			c.publish('/nersd/rfid', '{}-cadastro'.format(tag_cadastrado))
 
 	else:
 		if uid in lista_rfid:
 			# <ABRIR PORTA>
 			print('Entrada permitida. UID: {}\n'.format(uid))
-			c.publish('/nersd/rfid', 'permitido-{}'.format(uid))
+			c.publish('/nersd/rfid', '{}-permitido'.format(uid))
 		else:
 			# Acesso negado
 			print('Acesso negado. UID: {}\n'.format(uid))
-			c.publish('/nersd/rfid', 'negado-{}'.format(uid))
+			c.publish('/nersd/rfid', '{}-negado'.format(uid))
 	
 			
 
